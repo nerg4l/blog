@@ -1,0 +1,20 @@
+<article class="mb-4">
+    <h3 class="mdc-typography--headline5">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h3>
+
+    <h4 class="mdc-typography--subtitle2">
+        {{ partial "article-metadata" . }}
+    </h4>
+
+    <div class="mdc-typography--body1">
+        {{ .Summary }}
+        {{ if .Truncated }}
+            <div>
+                <a href="{{ .RelPermalink }}">{{ i18n "readMore" }}</a>
+            </div>
+        {{ end }}
+    </div>
+</article>
+
+<div class="mdc-list-divider"></div>

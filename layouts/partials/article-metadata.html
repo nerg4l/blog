@@ -1,0 +1,40 @@
+{
+
+{{ with .PublishDate }}
+    publishDate:
+    {{ if ($.Site.Params.enableMomentJs | default true ) }}
+        <span class="badge badge-light date moment">{{ .Format "2006-01-02" }}</span>,
+    {{ else }}
+        <span class="badge badge-light date">{{ .Format ($.Site.Params.DateFormat | default "2006-01-02") }}</span>,
+    {{ end }}
+{{ end }}
+
+readTime: <span class="badge badge-light">{{ i18n "readingTime" .ReadingTime }}</span>,
+
+{{ with .Params.categories }}
+    categories: [
+    {{ range . }}
+        <a href="{{ (print "/categories/" ( . | urlize)) | relLangURL }}"
+           class="badge badge-secondary">{{ . }}</a>,
+    {{ end }}
+    ],
+{{ end }}
+
+{{ with .Params.tags }}
+    tags: [
+    {{ range . }}
+        <a href="{{ (print "/tags/" (. | urlize)) | relLangURL }}"
+           class="badge badge-secondary">{{ . }}</a>,
+    {{ end }}
+    ]
+{{ end }}
+
+{{ with .Params.authors }}
+    authors: [
+    {{ range . }}
+        <span class="badge badge-light">{{ . }}</span>,
+    {{ end }}
+    ],
+{{ end }}
+
+}

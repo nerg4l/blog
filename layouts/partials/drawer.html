@@ -1,0 +1,36 @@
+<aside class="mdc-drawer mdc-drawer--modal">
+    <div class="mdc-drawer__content">
+        <nav class="mdc-list">
+            {{- $currentPage := . }}
+            <h6 class="mdc-list-group__subheader">{{ i18n "blog" }}</h6>
+
+            <a class="mdc-list-item{{ if or (.IsHome) (eq .Page.Kind "404") }} mdc-list-item--activated{{ end }}"
+               href="{{ .Site.BaseURL | relLangURL }}">{{ i18n "articles" }}</a>
+
+            {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies }}
+                {{ with $.Site.GetPage (printf "/%s" $taxonomy_term) }}
+                    <a class="mdc-list-item{{ if eq $currentPage.Section $taxonomy_term }} mdc-list-item--activated{{ end }}"
+                       href="{{ .Permalink }}" title="{{ i18n $taxonomy_term }}">{{ i18n $taxonomy_term }}</a>
+                {{ end }}
+            {{ end }}
+
+            <div class="mdc-list-divider"></div>
+
+            <h6 class="mdc-list-group__subheader">{{ i18n "pages" }}</h6>
+
+            {{ range .Site.Menus.page }}
+                {{- $active := or ($currentPage.IsMenuCurrent "page" .) ($currentPage.HasMenuCurrent "page" .) }}
+                <a class="mdc-list-item{{ if $active }} mdc-list-item--activated{{end}}"
+                   href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+            {{ end }}
+
+            <div class="mdc-list-divider"></div>
+
+            <h6 class="mdc-list-group__subheader">{{ i18n "socialMedia" }}</h6>
+
+            {{ range (.Site.Params.social) }}
+                <a class="mdc-list-item" href="{{ .link }}">{{ .name }}</a>
+            {{ end }}
+        </nav>
+    </div>
+</aside>

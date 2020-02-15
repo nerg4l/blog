@@ -1,0 +1,31 @@
+{{ define "header" }}
+
+    <div class="row align-items-center mb-3">
+        <div class="col-md-auto">
+            <a href="{{ .Site.BaseURL | relLangURL }}">
+                <img src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.mail }}?d=mm&size=100"
+                     class="border rounded-circle" height="96" alt="" crossorigin="anonymous">
+            </a>
+        </div>
+        <div class="col-md">
+            <h1 class="mdc-typography--headline3">
+                {{ .Title }}
+            </h1>
+            <div class="mdc-typography--body1">
+                {{ .Content  }}
+            </div>
+        </div>
+    </div>
+
+{{ end }}
+
+{{ define "main" }}
+
+    {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+
+    {{ range $paginator.Pages }}
+        {{ .Render "summary" }}
+    {{ end }}
+
+    {{ partial "paginator" . }}
+{{ end }}

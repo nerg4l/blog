@@ -1,0 +1,33 @@
+$mdc-theme-primary: #d32f2f;
+$mdc-theme-secondary: #805acb;
+
+$mdc-typography-font-family: Raleway, sans-serif;
+
+$theme-colors: (
+        "primary": $mdc-theme-primary,
+        "secondary": $mdc-theme-secondary,
+        "success": #80e27e,
+        "info": #00bcd4,
+        "warning": #ffc107,
+        "danger": #ba000d,
+        "light": #f1f3f4,
+
+        "broadcastt": #ef5350,
+        "uploadd": #2196f3,
+        "playyer": #26a69a,
+
+        "gray": #adb5bd,
+);
+
+@import "~bootstrap/scss/bootstrap";
+@import "~material-components-web/material-components-web";
+
+.mdc-typography--body1,
+.mdc-typography--body2 {
+  color: lighten($body-color, 15%);
+}
+
+.mdc-card__disabled {
+  opacity: 0.6;
+  background: $gray-200;
+}

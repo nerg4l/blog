@@ -1,0 +1,75 @@
+<footer class="bg-light">
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-md-4 recent-posts">
+                <div class="py-3">
+                    <h4 class="mdc-typography--headline6">
+                        {{ i18n "latestPosts" }}
+                    </h4>
+                    <div class="mdc-typography--body2">
+                        <ul class="list-group list-group-flush">
+                            {{ range first (.Site.Params.amountLatestPostsInFooter | default 7) (where .Site.RegularPages.ByPublishDate.Reverse "Type" "in" .Site.Params.mainSections) }}
+                                <li class="list-group-item bg-light">
+                                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 categories">
+                <div class="py-3">
+                    <h4 class="mdc-typography--headline6">
+                        {{ i18n "categories" }}
+                    </h4>
+                    <div class="mdc-typography--body2">
+                        <ul class="list-group list-group-flush">
+                            {{ range $order, $taxonomy := (first ( .Site.Params.amountCategoriesInFooter | default 7 ) .Site.Taxonomies.categories.ByCount) }}
+                                <li class="list-group-item bg-light">
+                                    <a href="{{ (print "/categories/" ($taxonomy.Name | urlize)) | relLangURL }}">
+                                        {{ $taxonomy.Name | humanize }}</a>
+                                    <span class="badge badge-secondary badge-pill">{{ $taxonomy.Count }}</span>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 external-profiles">
+                <div class="py-3">
+                    <h4 class="mdc-typography--headline6">
+                        {{ i18n "socialMedia" }}
+                    </h4>
+                    <div class="mdc-typography--body2">
+                        {{/* Trademark guideliens are important */}}
+                        <ul class="list-group list-group-flush">
+                            {{ range .Site.Params.social }}
+                                <li class="list-group-item bg-light">
+                                    <img class="align-text-top" height="16" alt="{{ .name }} Logo"
+                                         src="{{ .icon }}" crossorigin="anonymous">
+                                    <a href="{{ .link }}">{{ .name }}</a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdc-list-divider"></div>
+
+        <div class="row my-3">
+            <div class="col-md-auto p-3 rss">
+                {{ with  .OutputFormats.Get "rss" -}}
+                    <a href="{{ .Permalink }}">{{ .Name }}</a>
+                {{- end }}
+            </div>
+            <div class="col-md p-3 copyright text-right">
+                Content of the site licensed under
+                <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </div>
+        </div>
+    </div>
+</footer>

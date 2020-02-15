@@ -1,0 +1,20 @@
+{{ define "main" }}
+    <div class="row justify-content-center">
+        {{ range .Data.Pages.ByWeight }}
+            <div class="col-md-6 mb-4">
+
+                <div class="mdc-card text-center h-100 {{ if eq .Params.State "planned" }} mdc-card__disabled{{ end }}">
+                    <div class="p-3 h-100">
+                        <h2 class="mdc-typography--headline5">
+                            <a href="{{ .Permalink }}" class="text-{{ .Title | urlize }}">{{ .Title }}</a>
+                        </h2>
+                        <div class="mdc-typography--body1 text-center">
+                            {{ .Summary }} <br>
+                            ({{ .Params.State | title }})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+    </div>
+{{ end }}

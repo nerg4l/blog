@@ -1,0 +1,67 @@
+baseurl: "https://nerg4l.gitlab.io/"
+languageCode: "en-us"
+title: "Nergal's Blog"
+
+Paginate: 10
+SectionPagesMenu: "main"
+
+# Change to one of your content languages defined at the end.
+DefaultContentLanguage: "en"
+
+# Enable / Disable comments on the articles via Disqus.
+disqusShortname: "https-nerg4l-github-io"
+
+# https://gohugo.io/getting-started/configuration-markup
+markup:
+  highlight:
+    lineNos: true
+    style: github
+
+author:
+  name: "Nergal"
+  mail: "contact@nergal.xyz"
+
+params:
+  # Description and meta data for the search engines
+  mail: "contact@nergal.xyz"
+  description: "Blog for Developers."
+  keywords: "blog,development,learn"
+  repoUrl: "https://gitlab.com/nerg4l/nerg4l.gitlab.io"
+
+  # Only show content from main sections
+  mainSections: ["article"]
+
+  ## Style configuration
+  # let hugo automatically resize and crop your images to the correct sizes
+  resizeImages: true
+
+  ## Content configuration
+  # enable automatical localization of the article's PublishedDate with momentjs
+  enableMomentJs: true
+
+  ## Footer configuration
+  # How many articles should be displayed at latest posts in the footer?
+  amountLatestPostsInFooter: 7
+
+  # How many categories should be displayed in the footer section?
+  amountCategoriesInFooter: 7
+
+  # social media profile urls for the footer links
+  social:
+    - name: GitHub
+      link: "https://github.com/nerg4l"
+      icon: "//i.imgur.com/ZZf2qIR.png"
+    - name: GitLab
+      link: "https://gitlab.com/nerg4l"
+      icon: "//i.imgur.com/MEzw9Qg.png"
+    - name: LinkedIn
+      link: "https://linkedin.com/in/laszlo-gorog-nergal"
+      icon: "//i.imgur.com/mzWxHNm.png"
+
+taxonomies:
+  tag: "tags"
+  category: "categories"
+
+outputs:
+  home: [ "HTML", "RSS" ]
+  page: [ "HTML" ]

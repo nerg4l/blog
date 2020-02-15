@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+    <div class="mdc-typography--body2 mb-4">
+        <ul class="list-group list-group-flush">
+            {{ $type := .Type }}
+            {{ range .Data.Terms.ByCount }}
+                {{ $count := .Count }}
+                {{ $term := .Term }}
+                <li class="list-group-item px-0">
+                    {{ with site.GetPage (printf "/%s/%s" $type $term) }}
+                        <a href="{{ .Permalink }}">{{ $term | humanize }}</a>
+                        <span class="badge badge-secondary badge-pill">{{ $count }}</span>
+                    {{ end }}
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+
+{{ end }}
