@@ -29,7 +29,7 @@ params:
   repoUrl: "https://gitlab.com/nerg4l/nerg4l.gitlab.io"
 
   # Only show content from main sections
-  mainSections: ["article"]
+  mainSections: ["articles"]
 
   ## Style configuration
   # let hugo automatically resize and crop your images to the correct sizes

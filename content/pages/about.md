@@ -10,7 +10,7 @@ applications.
 
 I spend my free time with programming. This gives me opportunities to explore and learn.
 
-On the [projects page]({{< ref "project/_index.md" >}}) you can read more about my long term ideas and on going big
+On the [projects page]({{< ref "projects/_index.md" >}}) you can read more about my long term ideas and on going big
 projects.
 
 ## Programing Languages
