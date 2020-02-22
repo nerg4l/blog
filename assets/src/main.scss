@@ -29,3 +29,8 @@ $theme-colors: (
   opacity: 0.6;
   background: $gray-200;
 }
+
+blockquote {
+  padding: 0 1em;
+  border-left: .25em solid #dfe2e5;
+}
