@@ -3,7 +3,7 @@ title: "About"
 date: 2020-02-15T16:10:54+01:00
 menu: "page" 
 ---
-My real name is László Görög. I'm a full stack developer. I've got experience mainly with Java, JavaScript and PHP
+My real name is László GÖRÖG. I'm a full stack developer. I've got experience mainly with Java, JavaScript and PHP
 applications.
 
 ## Projects
