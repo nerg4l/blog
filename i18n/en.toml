@@ -32,7 +32,7 @@ other = "Newer posts"
 other = "Continue reading"
 
 [readMore]
-other = "Read More ..."
+other = "Read more ..."
 
 [readingTime]
 one = "1 min read"
