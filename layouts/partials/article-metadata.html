@@ -9,32 +9,35 @@
     {{ end }}
 {{ end }}
 
-readTime: <span class="badge badge-light">{{ i18n "readingTime" .ReadingTime }}</span>,
+readTime: <span class="badge badge-light">{{ i18n "readingTime" .ReadingTime }}</span>
 
-{{ with .Params.categories }}
+{{- with .Params.categories }},
     categories: [
-    {{ range . }}
-        <a href="{{ (print "/categories/" ( . | urlize)) | relLangURL }}"
-           class="badge badge-secondary">{{ . }}</a>,
-    {{ end }}
-    ],
-{{ end }}
-
-{{ with .Params.tags }}
-    tags: [
-    {{ range . }}
-        <a href="{{ (print "/tags/" (. | urlize)) | relLangURL }}"
-           class="badge badge-secondary">{{ . }}</a>,
-    {{ end }}
+    {{ range $i, $v := . -}}
+        {{- if $i }},{{ end }}
+        <a href="{{ (print "/categories/" ( $v | urlize)) | relLangURL }}"
+           class="badge badge-secondary">{{ $v }}</a>
+    {{- end }}
     ]
-{{ end }}
+{{- end }}
 
-{{ with .Params.authors }}
+{{- with .Params.tags }},
+    tags: [
+    {{ range $i, $v := . -}}
+        {{- if $i }},{{ end }}
+        <a href="{{ (print "/tags/" ($v | urlize)) | relLangURL }}"
+           class="badge badge-secondary">{{ $v }}</a>
+    {{- end }}
+    ]
+{{- end }}
+
+{{- with .Params.authors }},
     authors: [
-    {{ range . }}
-        <span class="badge badge-light">{{ . }}</span>,
-    {{ end }}
-    ],
-{{ end }}
+    {{ range $i, $v := . -}}
+        {{- if $i }},{{ end }}
+        <span class="badge badge-light">{{ . }}</span>
+    {{- end }}
+    ]
+{{- end }}
 
 }
