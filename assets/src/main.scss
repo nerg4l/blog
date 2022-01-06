@@ -1,20 +1,20 @@
-$mdc-theme-primary: #d32f2f;
-$mdc-theme-secondary: #805acb;
+@use "~@material/theme" with (
+        $primary: #d32f2f,
+        $secondary: #805acb,
+        $background: #fff,
+);
 
 $mdc-typography-font-family: Raleway, sans-serif;
 
 $theme-colors: (
-        "primary": $mdc-theme-primary,
-        "secondary": $mdc-theme-secondary,
+        "primary": theme.$primary,
+        "secondary": theme.$secondary,
         "success": #80e27e,
         "info": #00bcd4,
         "warning": #ffc107,
         "danger": #ba000d,
         "light": #f1f3f4,
-
-        "broadcastt": #ef5350,
-        "uploadd": #2196f3,
-        "playyer": #26a69a,
+        "dark": #212529,
 );
 
 @import "~bootstrap/scss/bootstrap";

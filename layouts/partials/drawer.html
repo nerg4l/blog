@@ -5,12 +5,18 @@
             <h6 class="mdc-list-group__subheader">{{ i18n "blog" }}</h6>
 
             <a class="mdc-list-item{{ if .IsHome | or (eq .Page.Kind "404") | or (eq .Page.Type "articles") }} mdc-list-item--activated{{ end }}"
-               href="{{ .Site.BaseURL | relLangURL }}">{{ i18n "articles" }}</a>
+               href="{{ .Site.BaseURL | relLangURL }}">
+                <span class="mdc-list-item__ripple"></span>
+                <span class="mdc-list-item__text">{{ i18n "articles" }}</span>
+            </a>
 
             {{ range $taxonomy_term, $taxonomy := .Site.Taxonomies }}
                 {{ with $.Site.GetPage (printf "/%s" $taxonomy_term) }}
                     <a class="mdc-list-item{{ if eq $currentPage.Section $taxonomy_term }} mdc-list-item--activated{{ end }}"
-                       href="{{ .Permalink }}" title="{{ i18n $taxonomy_term }}">{{ i18n $taxonomy_term }}</a>
+                       href="{{ .Permalink }}" title="{{ i18n $taxonomy_term }}">
+                        <span class="mdc-list-item__ripple"></span>
+                        <span class="mdc-list-item__text">{{ i18n $taxonomy_term }}</span>
+                    </a>
                 {{ end }}
             {{ end }}
 
@@ -21,7 +27,10 @@
             {{ range .Site.Menus.page }}
                 {{- $active := or ($currentPage.IsMenuCurrent "page" .) ($currentPage.HasMenuCurrent "page" .) }}
                 <a class="mdc-list-item{{ if $active }} mdc-list-item--activated{{end}}"
-                   href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+                   href="{{ .URL }}" title="{{ .Title }}">
+                    <span class="mdc-list-item__ripple"></span>
+                    <span class="mdc-list-item__text">{{ .Name }}</span>
+                </a>
             {{ end }}
 
             <div class="mdc-list-divider"></div>

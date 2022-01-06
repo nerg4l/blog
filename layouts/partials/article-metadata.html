@@ -3,20 +3,20 @@
 {{ with .PublishDate }}
     publishDate:
     {{ if ($.Site.Params.enableMomentJs | default true ) }}
-        <span class="badge badge-light date moment">{{ .Format "2006-01-02" }}</span>,
+        <span class="badge bg-light text-dark date moment">{{ .Format "2006-01-02" }}</span>,
     {{ else }}
-        <span class="badge badge-light date">{{ .Format ($.Site.Params.DateFormat | default "2006-01-02") }}</span>,
+        <span class="badge bg-light text-dark date">{{ .Format ($.Site.Params.DateFormat | default "2006-01-02") }}</span>,
     {{ end }}
 {{ end }}
 
-readTime: <span class="badge badge-light">{{ i18n "readingTime" .ReadingTime }}</span>
+readTime: <span class="badge bg-light text-dark">{{ i18n "readingTime" .ReadingTime }}</span>
 
 {{- with .Params.categories }},
     categories: [
     {{ range $i, $v := . -}}
         {{- if $i }},{{ end }}
         <a href="{{ (print "/categories/" ( $v | urlize)) | relLangURL }}"
-           class="badge badge-secondary">{{ $v }}</a>
+           class="badge bg-secondary">{{ $v }}</a>
     {{- end }}
     ]
 {{- end }}
@@ -26,7 +26,7 @@ readTime: <span class="badge badge-light">{{ i18n "readingTime" .ReadingTime }}<
     {{ range $i, $v := . -}}
         {{- if $i }},{{ end }}
         <a href="{{ (print "/tags/" ($v | urlize)) | relLangURL }}"
-           class="badge badge-secondary">{{ $v }}</a>
+           class="badge bg-secondary">{{ $v }}</a>
     {{- end }}
     ]
 {{- end }}
@@ -35,7 +35,7 @@ readTime: <span class="badge badge-light">{{ i18n "readingTime" .ReadingTime }}<
     authors: [
     {{ range $i, $v := . -}}
         {{- if $i }},{{ end }}
-        <span class="badge badge-light">{{ . }}</span>
+        <span class="badge bg-light text-dark">{{ . }}</span>
     {{- end }}
     ]
 {{- end }}
