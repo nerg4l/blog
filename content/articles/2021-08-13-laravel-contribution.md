@@ -4,7 +4,7 @@ date: 2021-08-13T12:02:17+02:00
 lastmod: 2021-08-26T10:14:37+02:00
 
 categories: ["Contribution", "Programming"]
-tags: ["Laravel", "mailer", "proud"]
+tags: ["Laravel", "mailer"]
 authors: ["László GÖRÖG"]
 summary: "Let's talk about my contribution to Laravel 8.x."
 ---

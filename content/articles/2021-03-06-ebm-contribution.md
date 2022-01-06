@@ -4,7 +4,7 @@ date: 2021-03-06T12:23:19+01:00
 lastmod: 2021-08-13T12:00:22+02:00
 
 categories: ["Contribution", "Programming"]
-tags: ["EBML", "Matroska", "RFC", "proud"]
+tags: ["EBML", "Matroska", "RFC"]
 authors: ["László GÖRÖG"]
 summary: "Let's talk about my contribution to an IETF draft."
 ---
