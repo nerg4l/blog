@@ -16,7 +16,7 @@ readTime: <span class="badge bg-light text-dark">{{ i18n "readingTime" .ReadingT
     {{ range $i, $v := . -}}
         {{- if $i }},{{ end }}
         <a href="{{ (print "/categories/" ( $v | urlize)) | relLangURL }}"
-           class="badge bg-secondary">{{ $v }}</a>
+           class="badge bg-secondary link-light">{{ $v }}</a>
     {{- end }}
     ]
 {{- end }}
@@ -26,7 +26,7 @@ readTime: <span class="badge bg-light text-dark">{{ i18n "readingTime" .ReadingT
     {{ range $i, $v := . -}}
         {{- if $i }},{{ end }}
         <a href="{{ (print "/tags/" ($v | urlize)) | relLangURL }}"
-           class="badge bg-secondary">{{ $v }}</a>
+           class="badge bg-secondary link-light">{{ $v }}</a>
     {{- end }}
     ]
 {{- end }}

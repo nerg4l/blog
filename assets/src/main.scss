@@ -4,18 +4,22 @@
         $background: #fff,
 );
 
-$mdc-typography-font-family: Raleway, sans-serif;
-
-$theme-colors: (
-        "primary": theme.$primary,
-        "secondary": theme.$secondary,
-        "success": #80e27e,
-        "info": #00bcd4,
-        "warning": #ffc107,
-        "danger": #ba000d,
-        "light": #f1f3f4,
-        "dark": #212529,
+@use "@material/typography" with (
+  $font-family: unquote("Raleway, sans-serif")
 );
+
+@use "@material/list";
+
+@include list.deprecated-core-styles;
+
+$primary: theme.$primary;
+$secondary: theme.$secondary;
+$success: #80e27e;
+$info: #00bcd4;
+$warning: #ffc107;
+$danger: #ba000d;
+$light: #f1f3f4;
+$dark: #212529;
 
 @import "~bootstrap/scss/bootstrap";
 @import "~material-components-web/material-components-web";

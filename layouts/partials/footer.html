@@ -29,7 +29,7 @@
                                 <li class="list-group-item bg-light">
                                     <a href="{{ (print "/categories/" ($taxonomy.Name | urlize)) | relLangURL }}">
                                         {{ $taxonomy.Name | humanize }}</a>
-                                    <span class="badge bg-secondary rounded-pill">{{ $taxonomy.Count }}</span>
+                                    <span class="badge bg-secondary text-light rounded-pill">{{ $taxonomy.Count }}</span>
                                 </li>
                             {{ end }}
                         </ul>

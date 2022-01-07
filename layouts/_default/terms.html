@@ -9,7 +9,7 @@
                 <li class="list-group-item px-0">
                     {{ with site.GetPage (printf "/%s/%s" $type $term) }}
                         <a href="{{ .Permalink }}">{{ $term | humanize }}</a>
-                        <span class="badge bg-secondary rounded-pill">{{ $count }}</span>
+                        <span class="badge bg-secondary text-light rounded-pill">{{ $count }}</span>
                     {{ end }}
                 </li>
             {{ end }}

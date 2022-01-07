@@ -1,8 +1,5 @@
-import mdcAutoInit from '@material/auto-init';
 import {MDCDrawer} from "@material/drawer";
 import {MDCTopAppBar} from "@material/top-app-bar";
-
-mdcAutoInit();
 
 document.querySelectorAll("moment").forEach(value => {
     value.text(moment(value.text()).locale().format('LL'));
