@@ -54,8 +54,11 @@ params:
     - name: GitLab
       link: "https://gitlab.com/nerg4l"
       icon: "//i.imgur.com/MEzw9Qg.png"
+    - name: Stack Overflow
+      link: "https://stackoverflow.com/users/2231168/nergal"
+      icon: "//i.imgur.com/oxP1szh.png"
     - name: LinkedIn
-      link: "https://linkedin.com/in/laszlo-gorog-nergal"
+      link: "https://linkedin.com/in/laszlo-gorog"
       icon: "//i.imgur.com/mzWxHNm.png"
 
 taxonomies:
