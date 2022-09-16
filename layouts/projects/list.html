@@ -3,12 +3,12 @@
         {{ range .Data.Pages.ByWeight }}
             <div class="col-md-6 mb-4">
 
-                <div class="mdc-card text-center h-100 {{ if eq .Params.State "planned" }} mdc-card__disabled{{ end }}">
+                <div class="text-center h-100 {{ if eq .Params.State "planned" }} project__disabled{{ end }}">
                     <div class="p-3 h-100">
-                        <h2 class="mdc-typography--headline5">
+                        <h2>
                             <a href="{{ .Permalink }}" class="text-{{ .Title | urlize }}">{{ .Title }}</a>
                         </h2>
-                        <div class="mdc-typography--body1 text-center">
+                        <div>
                             {{ .Summary }} <br>
                             ({{ .Params.State | title }})
                         </div>

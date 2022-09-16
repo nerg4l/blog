@@ -3,10 +3,10 @@
         <div class="row my-3">
             <div class="col-md-4 recent-posts">
                 <div class="py-3">
-                    <h4 class="mdc-typography--headline6">
+                    <h4 class="px-3">
                         {{ i18n "latestPosts" }}
                     </h4>
-                    <div class="mdc-typography--body2">
+                    <div>
                         <ul class="list-group list-group-flush">
                             {{ range first (.Site.Params.amountLatestPostsInFooter | default 7) (where .Site.RegularPages.ByPublishDate.Reverse "Type" "in" .Site.Params.mainSections) }}
                                 <li class="list-group-item bg-light">
@@ -20,45 +20,52 @@
 
             <div class="col-md-4 categories">
                 <div class="py-3">
-                    <h4 class="mdc-typography--headline6">
-                        {{ i18n "categories" }}
-                    </h4>
-                    <div class="mdc-typography--body2">
-                        <ul class="list-group list-group-flush">
-                            {{ range $order, $taxonomy := (first ( .Site.Params.amountCategoriesInFooter | default 7 ) .Site.Taxonomies.categories.ByCount) }}
+                    {{ with $.Site.GetPage "categories" }}
+                        <h4 class="px-3">
+                            <a class="text-decoration-none" href="{{ .Permalink }}">{{ i18n "categories" }}</a>
+                        </h4>
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                {{ range $order, $taxonomy := (first ( .Site.Params.amountCategoriesInFooter | default 7 ) .Site.Taxonomies.categories.ByCount) }}
+                                    <li class="list-group-item bg-light">
+                                        <a href="{{ (print "/categories/" ($taxonomy.Name | urlize)) | relLangURL }}">
+                                            {{ $taxonomy.Name | humanize }}</a>
+                                        <span class="badge bg-secondary text-light rounded-pill">{{ $taxonomy.Count }}</span>
+                                    </li>
+                                {{ end }}
                                 <li class="list-group-item bg-light">
-                                    <a href="{{ (print "/categories/" ($taxonomy.Name | urlize)) | relLangURL }}">
-                                        {{ $taxonomy.Name | humanize }}</a>
-                                    <span class="badge bg-secondary text-light rounded-pill">{{ $taxonomy.Count }}</span>
+                                    <a href="{{ .Permalink }}">...</a>
                                 </li>
-                            {{ end }}
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
+                    {{ end }}
                 </div>
             </div>
 
             <div class="col-md-4 external-profiles">
                 <div class="py-3">
-                    <h4 class="mdc-typography--headline6">
-                        {{ i18n "socialMedia" }}
-                    </h4>
-                    <div class="mdc-typography--body2">
-                        {{/* Trademark guideliens are important */}}
-                        <ul class="list-group list-group-flush">
-                            {{ range .Site.Params.social }}
+                    {{ with $.Site.GetPage "tags" }}
+                        <h4 class="px-3">
+                            <a class="text-decoration-none" href="{{ .Permalink }}">{{ i18n "tags" }}</a>
+                        </h4>
+                        <div>
+                            <ul class="list-group list-group-flush">
+                                {{ range $order, $taxonomy := (first ( .Site.Params.amountTagsInFooter | default 7 ) .Site.Taxonomies.tags.ByCount) }}
+                                    <li class="list-group-item bg-light">
+                                        <a href="{{ (print "/tags/" ($taxonomy.Name | urlize)) | relLangURL }}">
+                                            {{ $taxonomy.Name | humanize }}</a>
+                                        <span class="badge bg-secondary text-light rounded-pill">{{ $taxonomy.Count }}</span>
+                                    </li>
+                                {{ end }}
                                 <li class="list-group-item bg-light">
-                                    <img class="align-text-top" height="16" alt="{{ .name }} Logo"
-                                         src="{{ .icon }}" crossorigin="anonymous">
-                                    <a href="{{ .link }}">{{ .name }}</a>
+                                    <a href="{{ .Permalink }}">...</a>
                                 </li>
-                            {{ end }}
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
+                    {{ end }}
                 </div>
             </div>
         </div>
-
-        <div class="mdc-list-divider"></div>
 
         <div class="row my-3">
             <div class="col-md-auto p-3 rss">

@@ -8,12 +8,19 @@
             </a>
         </div>
         <div class="col-md">
-            <h1 class="mdc-typography--headline3">
+            <h1>
                 {{ .Title }}
             </h1>
-            <div class="mdc-typography--body1">
+            <div>
                 {{ .Content  }}
             </div>
+            <ul class="list-group list-group-horizontal">
+                {{ range .Site.Params.social }}
+                    <li class="list-group-item">
+                        <a class="text-decoration-none" href="{{ .link }}">{{ .name }}</a>
+                    </li>
+                {{ end }}
+            </ul>
         </div>
     </div>
 

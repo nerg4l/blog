@@ -41,12 +41,15 @@ params:
 
   ## Footer configuration
   # How many articles should be displayed at latest posts in the footer?
-  amountLatestPostsInFooter: 7
+  amountLatestPostsInFooter: 4
 
   # How many categories should be displayed in the footer section?
-  amountCategoriesInFooter: 7
+  amountCategoriesInFooter: 4
 
-  # social media profile urls for the footer links
+  # How many tags should be displayed in the footer section?
+  amountTagsInFooter: 4
+
+  # social media profile urls
   social:
     - name: GitHub
       link: "https://github.com/nerg4l"

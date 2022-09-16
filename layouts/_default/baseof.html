@@ -29,31 +29,24 @@
     {{- else -}}
         <title>{{ .Title }} | {{ .Site.Title }}</title>
     {{- end }}
-    <link rel="stylesheet" href="{{ (resources.Get "dist/app.css").Permalink }}">
+    <link rel="stylesheet" href="{{ (resources.Get "dist/style.css").Permalink }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     {{ with .OutputFormats.Get "rss" -}}
         {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
     {{ template "_internal/twitter_cards.html" . }}
 </head>
-<body class="mdc-typography">
-
-    {{ partial "drawer" . }}
-
-    <div class="mdc-drawer-scrim"></div>
+<body>
 
     <div class="" id="main-content">
-        {{ partial "top-app-bar" . }}
+        {{ partial "navbar" . }}
 
         <div class="min-vh-100 d-flex flex-column">
-
-            <div class="mdc-top-app-bar--fixed-adjust"></div>
-
             <header class="py-3">
                 <div class="container">
                     {{ block "header" . }}
 
-                        <h1 class="mdc-typography--headline3">
+                        <h1>
                             {{ if eq .Kind "taxonomy" }}
                                 {{ .Data.Singular | title }}:
                             {{ end }}
@@ -74,7 +67,7 @@
 
     {{ template "_internal/google_analytics_async.html" . }}
 
-    <script src="{{ (resources.Get "dist/app.js").Permalink }}"></script>
+    <script src="{{ (resources.Get "dist/script.js").Permalink }}"></script>
 
 </body>
 </html>

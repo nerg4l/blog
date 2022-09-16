@@ -1,40 +1,16 @@
-@use "~@material/theme" with (
-        $primary: #d32f2f,
-        $secondary: #805acb,
-        $background: #fff,
-);
-
-@use "@material/typography" with (
-  $font-family: unquote("Raleway, sans-serif")
-);
-
-@use "@material/list";
-
-@include list.deprecated-core-styles;
-
-$primary: theme.$primary;
-$secondary: theme.$secondary;
-$success: #80e27e;
-$info: #00bcd4;
-$warning: #ffc107;
-$danger: #ba000d;
+$primary: #283593;
+$secondary: #9c27b0;
 $light: #f1f3f4;
 $dark: #212529;
 
-@import "~bootstrap/scss/bootstrap";
-@import "~material-components-web/material-components-web";
+@import "~bootstrap/scss/bootstrap.scss";
 
-.mdc-typography--body1,
-.mdc-typography--body2 {
-  color: lighten($body-color, 15%);
-}
-
-.mdc-card__disabled {
+.project__disabled {
   opacity: 0.6;
   background: $gray-200;
 }
 
 blockquote {
   padding: 0 1em;
-  border-left: .25em solid #dfe2e5;
+  border-left: .25em solid $secondary;
 }

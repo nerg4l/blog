@@ -1,13 +1,13 @@
 <article class="my-4">
-    <h3 class="mdc-typography--headline5">
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </h3>
+    <h2>
+        <a class="text-decoration-none" href="{{ .Permalink }}">{{ .Title }}</a>
+    </h2>
 
-    <h4 class="mdc-typography--subtitle2">
+    <div>
         {{ partial "article-metadata" . }}
-    </h4>
+    </div>
 
-    <div class="mdc-typography--body1">
+    <div>
         {{ .Summary }}
         {{ if .Truncated }}
             <div>
@@ -17,4 +17,4 @@
     </div>
 </article>
 
-<div class="mdc-deprecated-list-divider"></div>
+<hr>
